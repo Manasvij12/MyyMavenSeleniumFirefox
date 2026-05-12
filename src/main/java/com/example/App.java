@@ -11,7 +11,10 @@ public class App {
 
         FirefoxOptions options = new FirefoxOptions();
 
-        // Correct Snap Firefox binary
+        // Headless mode for Jenkins
+        options.addArguments("--headless");
+
+        // Firefox Snap binary
         options.setBinary("/snap/firefox/current/usr/lib/firefox/firefox");
 
         WebDriver driver = new FirefoxDriver(options);
@@ -28,5 +31,7 @@ public class App {
               .click();
 
         System.out.println(driver.getTitle());
+
+        driver.quit();
     }
 }
